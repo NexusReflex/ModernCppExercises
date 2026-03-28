@@ -56,4 +56,4 @@ g++ -std=c++20 ./[DirectoryName]/*.cpp -o exercise_output
 
 - [ ] **Exercise 09:** Use C++20 Concepts to constrain template parameters.
 
-- [ ] **Exercise 10:** Implement recursive algorithms using constexpr for compile-time evaluation.
+- [ ] **Exercise 10:** Implement recursive algorithms using constexpr for compile-time evaluation
