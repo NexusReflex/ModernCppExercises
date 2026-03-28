@@ -1,21 +1,22 @@
-# C++ Practice Circuit: Exercise 1
-## The Media Library Manager (RAII & Ownership)
+# C++ Practice Circuit: Exercise 02
+## The Functional Event Dispatcher (std::function & Closures)
 
-Mastering smart pointers is the "Point of No Return" for C++ developers—once you get comfortable with them, you'll never want to touch a `delete` keyword again. In this exercise, you will build a **Media Library Manager** to track assets like videos or photos.
+In professional C++ development—ranging from Game Engines (Unreal/Godot) to GUI frameworks (Qt)—we often treat **logic as data**. This exercise moves beyond simple data sorting and into **Behavioral Programming** using the functional headers of Modern C++.
 
-### Phase 1: The Foundation
+### The Objective
+Build an `EventManager` system that allows different parts of a program to "subscribe" to named events (e.g., `"OnDamage"`, `"OnLevelUp"`) using Lambdas and execute them dynamically when an event is triggered.
 
-#### The Objective
-Create a base class called `MediaAsset` and a derived class called `Video`. You will manage these using `std::unique_ptr` to ensure no memory leaks occur, adhering to modern RAII (Resource Acquisition Is Initialization) principles.
+### Your Tasks
+1. **The Registry:** Define a class `EventManager`. Use a `std::map<std::string, std::vector<std::function<void(int)>>>` to store subscribers.
+    * The `string` key is the Event Name.
+    * The `std::vector` stores multiple "callbacks" (functions) for that specific event.
+2. **The Subscribe Method:** Implement `void subscribe(const std::string& eventName, std::function<void(int)> callback)`.
+3. **The Emit Method:** Implement `void emit(const std::string& eventName, int value)`.
+    * Use `std::for_each` from the `<algorithm>` header to iterate through the vector and execute every callback.
+    * **Pro-tip:** Use `.find()` on the map instead of `[]` to avoid creating empty entries for events that don't exist.
+4. **The Stateful Lambda:** In `main()`, create a local variable `int totalDamage = 0;`. 
+    * Subscribe a Lambda to `"OnDamage"` that captures `totalDamage` **by reference**.
+    * Every time `emit("OnDamage", x)` is called, the total should increase and be printed.
 
-#### Your Tasks
-1. **Define the Base:** Create a class `MediaAsset` with a `virtual` destructor. Add a pure virtual function:  
-   `virtual void play() const = 0;`
-2. **Define the Derived:** Create a class `Video` that inherits from `MediaAsset`. 
-   * Give it a `std::string` member for the title. 
-   * Implement `play()` so it prints: `"Playing video: [title]"`.
-3. **The Factory:** Write a standalone function (or a static factory method) called `createAsset` that takes a string and returns a `std::unique_ptr<MediaAsset>` pointing to a new `Video` object.
-4. **The Test:** In `main()`, use your factory to create an asset. Call `.play()` on it.
-
-#### Why This Matters
-In modern C++, `std::unique_ptr` represents **exclusive ownership**. When the pointer goes out of scope, the memory is freed automatically. By using a `virtual` destructor in the base class, you ensure that the `Video` portion of the memory is cleaned up correctly even when deleted via a `MediaAsset*` pointer.
+### Why This Matters
+By using `std::function`, you are utilizing **Type Erasure**. The `EventManager` doesn't need to know if it's calling a global function, a member function, or a Lambda; it only cares about the **signature** (`void(int)`). This decouple's your system's "Trigger" from its "Logic," which is essential for scalable architecture.
