@@ -12,7 +12,7 @@ int main(){
     // Un-comment the line below and try to compile. It should FAIL.
     // std::unique_ptr<MediaAsset> another_ptr = video_asset; 
 
-    // EXPERIMENT B: The Move -> moves smart pointer content to a new smart pointer
+    // EXPERIMENT B: The Move -> moves smart pointer content to a new smart pointer. video_asset becomes nullptr.
     std::unique_ptr<MediaAsset> moved_asset = std::move(video_asset);
     std::cout << "Asset moved to new pointer.\n";
 
@@ -23,5 +23,5 @@ int main(){
     }
     
     moved_asset->play(); // This works.
-    video_asset->play(); // UNCOMMENT THIS TO SEE A RUNTIME CRASH.
+    // video_asset->play(); // UNCOMMENT THIS TO SEE A RUNTIME CRASH.
 }
