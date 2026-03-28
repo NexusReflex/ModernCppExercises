@@ -3,7 +3,6 @@
 #include <memory>
 #include <string>
 #include <utility>
-#include <iostream>
 
 class MediaAsset{
 
@@ -17,7 +16,7 @@ class MediaAsset{
 class Video : public MediaAsset{
 
     public:
-        explicit Video(const std::string title);
+        explicit Video(std::string title); // no const, otherwise std::move cannot move the string
 
         void play() const override;
     

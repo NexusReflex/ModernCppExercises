@@ -3,7 +3,7 @@
 #include "ResourceManager.h"
 
 
-Video::Video(const std::string title) : _title(std::move(title)) {}
+Video::Video(std::string title) : _title(std::move(title)) {}
 
 void Video::play() const {
     std::cout << "Playing title: " << _title << std::endl;
