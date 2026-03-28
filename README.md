@@ -14,7 +14,7 @@ This repository contains a series of 10 independent small coding exercises desig
 
 | # | Exercise | Core Concepts | Status |
 | :--- | :--- | :--- | :--- |
-| 01 | [Smart Resource Manager](./SmartResourceManagement) | `unique_ptr`, RAII, Rule of 5/0 | ⏳ Pending |
+| 01 | [Smart Resource Manager](./SmartResourceManagement) | `unique_ptr`, RAII, Rule of 5/0 | ✅ Done |
 | 02 | [Functional Gradebook](./FunctionalProgramming) | Lambdas, `<algorithm>`, `std::function` | ⏳ Pending |
 | 03 | [Thread-Safe Log Queue](./Multithreading) | Mutex, `lock_guard`, Concurrency | ⏳ Pending |
 | 04 | [Type-Safe Visitor](./Variant) | `std::variant`, `std::visit` | ⏳ Pending |
