@@ -1,6 +1,9 @@
 #include "EventManager.h"
 #include <iostream>
 #include <functional>
+#include <string>
+#include <iostream>
+
 
 int main(){
 
@@ -8,7 +11,7 @@ int main(){
     std::string panda_attack = "Panda";
     std::string grizzly_attack = "Grizzly";
     
-    std::function<void(const std::string&, int)> attack_callback = [&total_damage](const std::string& attacker, int damage_taken){
+    auto attack_callback = [&total_damage](const std::string& attacker, int damage_taken){
         total_damage += damage_taken;
         if (total_damage < 100){
             std::cout << "You got attacked by a " << attacker << ". Total damage taken: " << total_damage << std::endl;
