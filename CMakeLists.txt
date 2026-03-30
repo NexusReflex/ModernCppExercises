@@ -20,3 +20,4 @@ endif()
 # 3. Include subdirectories for each day
 add_subdirectory(SmartResourceManagement)
 add_subdirectory(Functional)
+add_subdirectory(Multithreading)

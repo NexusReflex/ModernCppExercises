@@ -15,8 +15,8 @@ This repository contains a series of 10 independent small coding exercises desig
 | # | Exercise | Core Concepts | Status |
 | :--- | :--- | :--- | :--- |
 | 01 | [Smart Resource Manager](./SmartResourceManagement) | `unique_ptr`, RAII, Rule of 5/0 | ✅ Done |
-| 02 | [Functional Event Dispatcher](./Functional) | Lambdas, `<algorithm>`, `std::function` | ✅ Done |
-| 03 | [Thread-Safe Log Queue](./Multithreading) | Mutex, `lock_guard`, Concurrency | ⏳ Pending |
+| 02 | [Functional Event Dispatcher](./Functional) | Lambdas, `<algorithm>`, `std::function` |  |
+| 03 | [Thread-Safe Log Queue](./Multithreading) | Mutex, `lock_guard`, Concurrency | ✅ Done |
 | 04 | [Type-Safe Visitor](./Variant) | `std::variant`, `std::visit` | ⏳ Pending |
 | 05 | [The Generic Matrix](./Templates) | Templates, `static_assert`, Operators | ⏳ Pending |
 | 06 | [Async Data Fetcher](./Async) | `std::future`, `std::async` | ⏳ Pending |
@@ -42,7 +42,7 @@ g++ -std=c++20 ./[DirectoryName]/*.cpp -o exercise_output
 
 - [x] **Exercise 02:** Perform data transformations using <algorithm> and Lambdas.
 
-- [ ] **Exercise 03:** Implement a Producer-Consumer thread-safe queue with Mutexes.
+- [x] **Exercise 03:** Implement a Producer-Consumer thread-safe queue with Mutexes.
 
 - [ ] **Exercise 04:** Replace class hierarchies with std::variant and std::visit.
 
